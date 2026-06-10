@@ -1,0 +1,19 @@
+{
+    "last_updated": "2026-06-10 03:20:09 UTC",
+    "garmin": {
+        "total": 14,
+        "sentiment": {
+            "positive": 6,
+            "neutral": 7,
+            "negative": 1
+        }
+    },
+    "amazfit": {
+        "total": 4,
+        "sentiment": {
+            "positive": 2,
+            "neutral": 2,
+            "negative": 0
+        }
+    }
+}
