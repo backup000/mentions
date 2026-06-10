@@ -5,17 +5,26 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
+# 1. This fixes the Node.js warning from your screenshot
+env: 
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    # 2. This grants the workflow permission to save the new data.json file
+    permissions:
+      contents: write 
+
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4  # Updated to v4 to clear the Node.js warning
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v5  # Updated to v5 to clear the Node.js warning
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.10'  # Fixed typo here!
+        python-version: '3.10'
 
     - name: Install dependencies
       run: pip install requests
