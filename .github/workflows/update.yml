@@ -1,0 +1,35 @@
+name: Update Reddit Data
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs automatically every day at midnight
+  workflow_dispatch: # Allows you to force-run it manually via a button
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-node: '3.10'
+
+    - name: Install dependencies
+      run: pip install requests
+
+    - name: Run script
+      env:
+        REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+        REDDIT_SECRET: ${{ secrets.REDDIT_SECRET }}
+      run: python fetch_data.py
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        git add data.json
+        git commit -m "Automated data refresh" || exit 0
+        git push
