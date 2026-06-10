@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 # These secrets will be safely injected by GitHub Actions
 client_id = os.environ.get("REDDIT_CLIENT_ID")
 client_secret = os.environ.get("REDDIT_CLIENT_SECRET")
-user_agent = "script:hyrox_tracker:v1.0 (by /u/anonymous)"
+user_agent = "script:hyrox_tracker:v1.0 (by /u/misnomerx)"
 
 auth = requests.auth.HTTPBasicAuth(client_id, client_secret)
 data = {'grant_type': 'client_credentials'}
