@@ -14,6 +14,7 @@ data = {'grant_type': 'client_credentials'}
 headers = {'User-Agent': user_agent}
 
 res = requests.post('https://www.reddit.com/api/v1/access_token', auth=auth, data=data, headers=headers)
+print("REDDIT RESPONSE:", res.text) # <-- This prints the exact error from Reddit to the logs
 TOKEN = res.json()['access_token']
 headers['Authorization'] = f'bearer {TOKEN}'
 
