@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-08-26 01:47:20 UTC",
+    "last_updated": "2026-08-27 08:52:36 UTC",
     "garmin": {
         "total": 6,
         "sentiment": {
@@ -9,10 +9,10 @@
         }
     },
     "amazfit": {
-        "total": 4,
+        "total": 3,
         "sentiment": {
             "positive": 0,
-            "neutral": 4,
+            "neutral": 3,
             "negative": 0
         }
     }
